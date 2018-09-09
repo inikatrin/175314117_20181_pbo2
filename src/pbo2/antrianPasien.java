@@ -19,11 +19,11 @@ public class antrianPasien {
         return tanggalAntrian;
     }
 
-    public void setTanggalAntrian(int tanggalAntrian) throws Exception {//method void setTanggalAntrian dengan parameter tanggalAntrian bertipe data integer dengan menambahkan throws Exception
+    public void setTanggalAntrian(int tanggalAntrian) throws NumberFormatException {//method void setTanggalAntrian dengan parameter tanggalAntrian bertipe data integer dengan menambahkan throws NumberFormatException
         if (tanggalAntrian > 0 && tanggalAntrian < 32) {//dalam langkah ini jika tanggalAntrian lebih lebih besar dari 0 dan lebih kecil dari 32 dan benar, maka dia akan berhenti dan mencetaknya
             this.tanggalAntrian = tanggalAntrian;
         } else {
-            throw new Exception("salah ditanggalnya");//dan jika data tanggalLahir salah maka fungsi dari throw new Exception tsb akan bekerja dan mencetak bahwa tanggalAntrian tsb salah
+            throw new NumberFormatException("salah ditanggalnya");//dan jika data tanggalLahir salah maka fungsi dari throw new NumberFormatException tsb akan bekerja dan mencetak bahwa tanggalAntrian tsb salah
         }
     }
 
@@ -31,11 +31,11 @@ public class antrianPasien {
         return bulanAntrian;
     }
 
-    public void setBulanAntrian(int bulanAntrian) throws Exception {//method void setBulanAntrian dengan parameter bulanAntrianr bertipe data integer dengan menambahkan throws Exception
+    public void setBulanAntrian(int bulanAntrian) throws NumberFormatException {//method void setBulanAntrian dengan parameter bulanAntrianr bertipe data integer dengan menambahkan throws NumberFormatException
         if (bulanAntrian > 0 && bulanAntrian < 13) {//dalam langkah ini jika bulanAntrian lebih lebih besar dari 0 dan lebih kecil dari 13 dan benar, maka dia akan berhenti dan mencetaknya
             this.bulanAntrian = bulanAntrian;
         } else {
-            throw new Exception("salah bulannya nih"); //dan jika data BulanAntrian salah maka fungsi dari throw new Exception tsb akan bekerja dan mencetak bahwa bulanAntrian tsb salah
+            throw new NumberFormatException("salah bulannya nih"); //dan jika data BulanAntrian salah maka fungsi dari throw new NumberFormatException tsb akan bekerja dan mencetak bahwa bulanAntrian tsb salah
         }
 
     }
@@ -43,11 +43,11 @@ public class antrianPasien {
         return tahunAntrian;
     }
 
-    public void setTahunAntrian(int tahunAntrian) throws Exception {//method void setTahunAntrian dengan parameter tahunAntrian bertipe data integer dengan menambahkan throws Exception
+    public void setTahunAntrian(int tahunAntrian) throws NumberFormatException {//method void setTahunAntrian dengan parameter tahunAntrian bertipe data integer dengan menambahkan throws NumberFormatException
         if (tahunAntrian > 0) {//dalam langkah ini jika tahunAntrian lebih lebih besar dari 0 dan benar, maka dia akan berhenti dan mencetaknya
             this.tahunAntrian = tahunAntrian;
         } else {
-            throw new Exception("salah tahunnya nih..");//dan jika data TahunAntrian salah maka fungsi dari throw new Exception tsb akan bekerja dan mencetak bahwa tahunAntrian tsb salah
+            throw new NumberFormatException("salah tahunnya nih..");//dan jika data TahunAntrian salah maka fungsi dari throw new NumberFormatException tsb akan bekerja dan mencetak bahwa tahunAntrian tsb salah
         }}
     public klinik getKlinik() {//method getKlinik yang mengembalikan variabel Klinik
         return Klinik;

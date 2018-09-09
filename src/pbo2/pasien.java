@@ -18,11 +18,11 @@ public class pasien {
         return noRekamMedis;
     }
 
-    public void setNoRekamMedis(String noRekamMedis) throws Exception {//method void dengan menambahkan throws Exception
+    public void setNoRekamMedis(String noRekamMedis) throws NumberFormatException {//method void dengan menambahkan throws NumberFormatException
         if (noRekamMedis.length() <= 4) {//dalam langkah ini jika noRekamMedis lebih kecil sama dengan 4 dan benar, maka dia akan berhenti dan mencetaknya
             this.noRekamMedis = noRekamMedis;
         } else {
-            throw new Exception("nomor data anda salah.");//dan jika data noRekamMedis salah maka fungsi dari throw new Exception tsb akan bekerja dan mencetak bahwa noRekamMedis tsb salah
+            throw new NumberFormatException("nomor data anda salah.");//dan jika data noRekamMedis salah maka fungsi dari throw new NumberFormatException tsb akan bekerja dan mencetak bahwa noRekamMedis tsb salah
         }
     }
 
@@ -54,11 +54,11 @@ public class pasien {
         return tanggalLahir;
     }
 
-    public void setTanggalLahir(int tanggalLahir) throws Exception {//method void setTanggalLahir dengan parameter tanggalLahir bertipe data integer dengan menambahkan throws Exception
+    public void setTanggalLahir(int tanggalLahir) throws NumberFormatException {//method void setTanggalLahir dengan parameter tanggalLahir bertipe data integer dengan menambahkan throws NumberFormatException
         if (tanggalLahir > 0 && tanggalLahir < 32) {//dalam langkah ini jika tanggalLahir lebih lebih besar dari 0 dan lebih kecil dari 32 dan benar, maka dia akan berhenti dan mencetaknya
             this.tanggalLahir = tanggalLahir;
         } else {
-            throw new Exception("salah ditanggalnya");//dan jika data tanggalLahir salah maka fungsi dari throw new Exception tsb akan bekerja dan mencetak bahwa tanggalLahir tsb salah
+            throw new NumberFormatException("salah ditanggalnya");//dan jika data tanggalLahir salah maka fungsi dari throw new NumberFormatException tsb akan bekerja dan mencetak bahwa tanggalLahir tsb salah
         }
     }
 
@@ -66,11 +66,11 @@ public class pasien {
         return bulanLahir;
     }
 
-    public void setBulanLahir(int bulanLahir) throws Exception {//method void setBulanLahir dengan parameter bulanLahir bertipe data integer dengan menambahkan throws Exception
+    public void setBulanLahir(int bulanLahir) throws NumberFormatException {//method void setBulanLahir dengan parameter bulanLahir bertipe data integer dengan menambahkan throws NumberFormatException
         if (bulanLahir > 0 && bulanLahir < 13) {//dalam langkah ini jika bulanLahir lebih lebih besar dari 0 dan lebih kecil dari 13 dan benar, maka dia akan berhenti dan mencetaknya
             this.bulanLahir = bulanLahir;
         } else {
-            throw new Exception("salah bulannya nih"); //dan jika data BulanLahir salah maka fungsi dari throw new Exception tsb akan bekerja dan mencetak bahwa bulanLahir tsb salah
+            throw new NumberFormatException("salah bulannya nih"); //dan jika data BulanLahir salah maka fungsi dari throw new NumberFormatException tsb akan bekerja dan mencetak bahwa bulanLahir tsb salah
         }
 
     }
@@ -79,11 +79,11 @@ public class pasien {
         return tahunLahir;
     }
 
-    public void setTahunLahir(int tahunLahir) throws Exception {//method void setTahunLahir dengan parameter tahunLahir bertipe data integer dengan menambahkan throws Exception
+    public void setTahunLahir(int tahunLahir) throws NumberFormatException {//method void setTahunLahir dengan parameter tahunLahir bertipe data integer dengan menambahkan throws NumberFormatException
         if (tahunLahir > 0) {//dalam langkah ini jika tahunLahir lebih lebih besar dari 0 dan benar, maka dia akan berhenti dan mencetaknya
             this.tahunLahir = tahunLahir;
         } else {
-            throw new Exception("salah tahunnya nih..");//dan jika data TahunLahir salah maka fungsi dari throw new Exception tsb akan bekerja dan mencetak bahwa tahunLahir tsb salah
+            throw new NumberFormatException("salah tahunnya nih..");//dan jika data TahunLahir salah maka fungsi dari throw new NumberFormatException tsb akan bekerja dan mencetak bahwa tahunLahir tsb salah
         }
 
     }
