@@ -3,28 +3,33 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package pbo2;
+package model;
+
+import java.util.ArrayList;
+import java.util.Date;
 
 /**
  *
  * @author Personal
  */
-public class antrianPasien {
+public class antrianKlinik {
 
-    private int tanggalAntrian, bulanAntrian, tahunAntrian;//variabel tanggalAntrian, bulanAntrina, tahunAntrian bertipe data String dan bersifat private
+    private int  bulanAntrian, tahunAntrian;//variabel tanggalAntrian, bulanAntrina, tahunAntrian bertipe data String dan bersifat private
     private klinik Klinik;//variabel klinik Klinik bertipe data Klinik bersifat private
-    private pasien daftarPasien[];//deklarasi array bertipe data Pasien bersifat private
+    private Date tanggalAntrian;
+    private ArrayList<pasien> daftarPasien = new ArrayList<>();
 
-    public int getTanggalAntrian() {//method getTanggalAntrian yang mengembalikan variabel tanggalAntrian
+    public void mendaftar(pasien Pasien){
+        pasien pasien = null;
+        getDaftarPasien().add(pasien);
+    }
+    
+    public Date getTanggalAntrian() {//method getTanggalAntrian yang mengembalikan variabel tanggalAntrian
         return tanggalAntrian;
     }
 
-    public void setTanggalAntrian(int tanggalAntrian) throws NumberFormatException {//method void setTanggalAntrian dengan parameter tanggalAntrian bertipe data integer dengan menambahkan throws NumberFormatException
-        if (tanggalAntrian > 0 && tanggalAntrian < 32) {//dalam langkah ini jika tanggalAntrian lebih lebih besar dari 0 dan lebih kecil dari 32 dan benar, maka dia akan berhenti dan mencetaknya
-            this.tanggalAntrian = tanggalAntrian;
-        } else {
-            throw new NumberFormatException("salah ditanggalnya");//dan jika data tanggalLahir salah maka fungsi dari throw new NumberFormatException tsb akan bekerja dan mencetak bahwa tanggalAntrian tsb salah
-        }
+    public void setTanggalAntrian(Date tanggalAntrian) {
+        this.tanggalAntrian = tanggalAntrian;
     }
 
     public int getBulanAntrian() {//method getBulanAntrian bertipe data integer yang mengembalikan varianel bulanAntrian
@@ -39,6 +44,7 @@ public class antrianPasien {
         }
 
     }
+
     public int getTahunAntrian() {//method getTahunAntrian yang mengembalikan variabel tahunAntrian
         return tahunAntrian;
     }
@@ -48,7 +54,9 @@ public class antrianPasien {
             this.tahunAntrian = tahunAntrian;
         } else {
             throw new NumberFormatException("salah tahunnya nih..");//dan jika data TahunAntrian salah maka fungsi dari throw new NumberFormatException tsb akan bekerja dan mencetak bahwa tahunAntrian tsb salah
-        }}
+        }
+    }
+
     public klinik getKlinik() {//method getKlinik yang mengembalikan variabel Klinik
         return Klinik;
     }
@@ -57,11 +65,11 @@ public class antrianPasien {
         this.Klinik = Klinik;
     }
 
-    public pasien[] getDaftarPasien() {//method getDaftarPasien yang mengembalikan array variabel Pasien
+    public ArrayList<pasien> getDaftarPasien() {//method getDaftarPasien yang mengembalikan array variabel Pasien
         return daftarPasien;
     }
 
-    public void setDaftarPasien(pasien[] daftarPasien) {//method void setDaftarPasien dengan parameter array daftarPasien bertipe data Pasien
+    public void setDaftarPasien(ArrayList<pasien> daftarPasien) {
         this.daftarPasien = daftarPasien;
     }
 

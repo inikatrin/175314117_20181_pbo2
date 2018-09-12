@@ -3,7 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package pbo2;
+package model;
+
+import java.util.ArrayList;
+import java.util.Date;
 
 /**
  *
@@ -11,8 +14,31 @@ package pbo2;
  */
 public class pasien {
 
-    private String noRekamMedis, nama, alamat, tempatLahir;//variabel noRekamMedis, nama, alamat, tempatLahir bertipe data String dan bersifat private
-    private int tanggalLahir, bulanLahir, tahunLahir;//variabeltanggalLahir, bulanLahir, tahunLahir bertipe data integer dan bersifat private
+    private String noRekamMedis, nama, alamat, tempatLahir, nik;//variabel noRekamMedis, nama, alamat, tempatLahir bertipe data String dan bersifat private
+    private int bulanLahir, tahunLahir;//variabeltanggalLahir, bulanLahir, tahunLahir bertipe data integer dan bersifat private
+    public static ArrayList<pasien> daftarPasienKlinik = new ArrayList<pasien>();
+    private Date tanggalLahir;
+    private Date tanggalAntrian;
+    
+    public pasien(String pasien){
+        
+    }
+   
+    public String getNik() {
+        return nik;
+    }
+
+    public void setNik(String nik) {
+        this.nik = nik;
+    }
+
+    public void tambahPasienBaru(pasien test) {
+        daftarPasienKlinik.add(bulanLahir, test);
+    }
+
+    public static pasien cariPasien(String string) {
+        return null;
+    }
 
     public String getNoRekamMedis() {//method getNoRekamedis bertipe data String yang akan mengembalikan variabel noRekamMedis
         return noRekamMedis;
@@ -50,16 +76,21 @@ public class pasien {
         this.tempatLahir = tempatLahir;
     }
 
-    public int getTanggalLahir() {//method getTanggalLahir bertipe data integer yang akan mengembalikan variabel tanggalLahir
+    public Date getTanggalLahir() {//method getTanggalLahir bertipe data integer yang akan mengembalikan variabel tanggalLahir
         return tanggalLahir;
     }
 
-    public void setTanggalLahir(int tanggalLahir) throws NumberFormatException {//method void setTanggalLahir dengan parameter tanggalLahir bertipe data integer dengan menambahkan throws NumberFormatException
-        if (tanggalLahir > 0 && tanggalLahir < 32) {//dalam langkah ini jika tanggalLahir lebih lebih besar dari 0 dan lebih kecil dari 32 dan benar, maka dia akan berhenti dan mencetaknya
-            this.tanggalLahir = tanggalLahir;
-        } else {
-            throw new NumberFormatException("salah ditanggalnya");//dan jika data tanggalLahir salah maka fungsi dari throw new NumberFormatException tsb akan bekerja dan mencetak bahwa tanggalLahir tsb salah
-        }
+    public void setTanggalLahir(Date tanggalLahir) {
+        this.tanggalLahir = tanggalLahir;
+    }
+
+    public void setTanggalLahir(int tahun, int bulan, int tanggal) {
+        tanggalLahir = new Date(tahun - 1900, bulan - 1, tanggal);
+    }
+
+    public int getUsia() {
+        Date today = new Date();
+        return today.getYear() - tanggalLahir.getYear();
     }
 
     public int getBulanLahir() {//method getBulanLahir bertipe data integer  yang akan mengembalikan variabel bulanLahir
@@ -88,4 +119,7 @@ public class pasien {
 
     }
 
+    public void setTanggalLahir(int i) {
+        
+    }
 }
