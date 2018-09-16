@@ -27,8 +27,8 @@ public class testKelasPasien {
                 1974, // tahun lahir
                 "19740112" // NIK
         );
-        
-        Pasien test1 = new Pasien(
+
+        pasien test1 = new pasien(
                 "Budi", // nama pasien
                 "Klaten", // alamat
                 "Klaten", // tempat lahir
@@ -37,17 +37,15 @@ public class testKelasPasien {
                 1999, // tahun lahir
                 "19990110" // NIK
         );
-        
-        pasien.tambahPasienBaru(test);
-        pasien.tambahPasienBaru(test1);
-        
-        for (int i = 0; i < Pasien.daftarPasienKlinik.size(); i++) {
-            System.out.println("Nama : "+Pasien.daftarPasienKlinik.get(i).getNama());
+
+        pasien.tambahPasien(test);
+        pasien.tambahPasien(test1);
+
+        for (int i = 0; i < pasien.daftarPasienKlinik.size(); i++) {
+            System.out.println("Nama : " + pasien.daftarPasienKlinik.get(i).getNama());
         }
-        
-        Pasien cari = Pasien.cariPasien("19990110");
-        System.out.println("Nama Hasil Pencarian = "+cari.getNama());
+
+        pasien cari = pasien.cariPasien("19990110");
+        System.out.println("Nama Hasil Pencarian = " + cari.getNama());
     }
-    }
-    
 }

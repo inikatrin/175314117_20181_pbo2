@@ -68,6 +68,12 @@ public class dokter {
     public String getTempatLahir() {//method getTempatLahir bertipe data String yang akan mengembalikan variabel tempatLahir
         return tempatLahir;
     }
+    
+    public void getTanggalKelahiran(){
+        Date tanggalKelahiran=new Date(getTahunLahir()-1990, getBulanLahir()-1, getTanggalLahir());
+        SimpleDateFormat ft= new SimpleDateFormat("dd-MM-yyyy");
+        System.out.println(ft.format(tanggalKelahiran));
+    }
 
     public void setTempatLahir(String tempatLahir) {//method void setTempatLahir dengan parameter tempatLahir bertipe data String
         this.tempatLahir = tempatLahir;

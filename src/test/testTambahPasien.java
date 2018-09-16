@@ -5,6 +5,9 @@
  */
 package test;
 
+import javax.swing.JFrame;
+import view.MainFrame;
+
 /**
  *
  * @author Personal
@@ -16,6 +19,10 @@ public class testTambahPasien {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        MainFrame MF = new MainFrame();
+        MF.setSize(600, 500);
+        MF.setVisible(true);
+        MF.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
     
 }

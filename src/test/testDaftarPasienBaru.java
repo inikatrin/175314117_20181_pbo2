@@ -5,6 +5,8 @@
  */
 package test;
 
+import view.DaftarPasienBaru;
+
 /**
  *
  * @author Personal
@@ -16,6 +18,9 @@ public class testDaftarPasienBaru {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        DaftarPasienBaru test = new DaftarPasienBaru("Pasien Baru");
+        test.setSize(600, 500);
+        test.setVisible(true);
     }
     
 }

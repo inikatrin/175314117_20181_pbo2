@@ -5,6 +5,8 @@
  */
 package test;
 
+import view.DaftarAntrianDialog;
+
 /**
  *
  * @author Personal
@@ -16,6 +18,9 @@ public class testDaftarAntrian {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        DaftarAntrianDialog test = new DaftarAntrianDialog("Antrian Baru");
+        test.setSize(600, 500);
+        test.setVisible(true);
     }
     
 }
