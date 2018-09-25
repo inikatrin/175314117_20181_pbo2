@@ -5,6 +5,7 @@
  */
 package test;
 
+import javax.swing.JFrame;
 import view.DaftarPasienBaru;
 
 /**
@@ -19,8 +20,10 @@ public class testDaftarPasienBaru {
     public static void main(String[] args) {
         // TODO code application logic here
         DaftarPasienBaru test = new DaftarPasienBaru("Pasien Baru");
+        test.setTitle("Daftar Pasien Baru");
         test.setSize(600, 500);
         test.setVisible(true);
+        test.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
-    
+
 }

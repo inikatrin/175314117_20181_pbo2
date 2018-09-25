@@ -14,6 +14,15 @@ public class klinik {
     private String idKlinik;//variabel idKlinik bertipe data String dan bersifat private
     private String nama;//variabel nama bertipe data String dan bersifat private
 
+    public klinik(String idKlinik, String nama) {
+        this.idKlinik = idKlinik;
+        this.nama = nama;
+    }
+    
+    public klinik() {
+
+    }
+
     public String getIdKlinik() {//method getIdKlinik bertipe data String yang mengembalikan variabel idKlinik 
         return idKlinik;
     }

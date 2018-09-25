@@ -5,6 +5,7 @@
  */
 package test;
 
+import javax.swing.JFrame;
 import view.DaftarAntrianDialog;
 
 /**
@@ -19,8 +20,10 @@ public class testDaftarAntrian {
     public static void main(String[] args) {
         // TODO code application logic here
         DaftarAntrianDialog test = new DaftarAntrianDialog();
-        test.setSize(400, 500);
+        test.setTitle("Daftar Antrian Pasien");
+        test.setSize(500,500);
         test.setVisible(true);
+        test.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
     
 }

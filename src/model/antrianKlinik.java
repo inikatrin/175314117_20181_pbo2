@@ -16,19 +16,24 @@ public class antrianKlinik {
 
     private int bulanAntrian, tahunAntrian;//variabel tanggalAntrian, bulanAntrina, tahunAntrian bertipe data String dan bersifat private
     private klinik Klinik;//variabel klinik Klinik bertipe data Klinik bersifat private
-    private Date tanggalAntrian;
+    private int tanggalAntrian;
     private ArrayList<pasien> daftarPasien = new ArrayList<pasien>();
+    public static ArrayList<antrianKlinik> antrianPasien = new ArrayList<antrianKlinik>();
 
     public void mendaftar(pasien Pasien) {
         daftarPasien.add(Pasien);
     }
+    
+    public antrianKlinik() {
 
-    public Date getTanggalAntrian() {//method getTanggalAntrian yang mengembalikan variabel tanggalAntrian
+    }
+    
+     public int getTanggalAntrian() {
         return tanggalAntrian;
     }
-
-    public void setTanggalAntrian(Date tanggalAntrian) {
-        this.tanggalAntrian = tanggalAntrian;
+     
+    public void setTanggalAntrian(int tanggalAntrian) {
+       this.tanggalAntrian=tanggalAntrian;
     }
 
     public int getBulanAntrian() {//method getBulanAntrian bertipe data integer yang mengembalikan varianel bulanAntrian
@@ -72,6 +77,43 @@ public class antrianKlinik {
         this.daftarPasien = daftarPasien;
     }
 
+    public static antrianKlinik cariPasien(String noRM) {
+        for (int i = 0; i < antrianPasien.size(); i++) {
+            if (antrianPasien.get(i).daftarPasien.equals(noRM)) {
+                return antrianPasien.get(i);
+            }
+        }
+        return null;
+    }
+
+    public static int cariAntrian(int tanggal, int bulan, int tahun, klinik klinik) {
+        for (int i = 0; i < antrianPasien.size(); i++) {
+            if (antrianPasien.get(i).getTanggalAntrian() == tanggal) {
+                if (antrianPasien.get(i).getBulanAntrian() == bulan) {
+                    if (antrianPasien.get(i).getTahunAntrian() == tahun) {
+                        if (antrianPasien.get(i).getKlinik().getIdKlinik().equalsIgnoreCase(klinik.getIdKlinik())) {
+                            return i;
+                        }
+                    }
+                }
+            }
+        }
+        return -1;
+    }
+
+    public static void buatAntrian(int tanggal, int bulan, int tahun, klinik klinik) throws Exception {
+        antrianKlinik antrian = new antrianKlinik();
+        antrian.setTanggalAntrian(tanggal);
+        antrian.setBulanAntrian(bulan);
+        antrian.setTahunAntrian(tahun);
+        antrian.setKlinik(klinik);
+        if (cariAntrian(tanggal, bulan, tahun, klinik) == -1) {
+            antrianPasien.add(antrian);
+        } else {
+            throw new Exception("Data sudah terdaftar");
+        }
+    }
+    
     public void printInfo() {
         System.out.println("");
         System.out.println("------------------------------------");
@@ -82,5 +124,9 @@ public class antrianKlinik {
 
         }
 
+    }
+
+    public void Mendaftar(pasien pas1) {
+       daftarPasien.add(pas1);  
     }
 }
