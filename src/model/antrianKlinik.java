@@ -14,16 +14,15 @@ import java.util.Date;
  */
 public class antrianKlinik {
 
-    private int  bulanAntrian, tahunAntrian;//variabel tanggalAntrian, bulanAntrina, tahunAntrian bertipe data String dan bersifat private
+    private int bulanAntrian, tahunAntrian;//variabel tanggalAntrian, bulanAntrina, tahunAntrian bertipe data String dan bersifat private
     private klinik Klinik;//variabel klinik Klinik bertipe data Klinik bersifat private
     private Date tanggalAntrian;
-    private ArrayList<pasien> daftarPasien = new ArrayList<>();
+    private ArrayList<pasien> daftarPasien = new ArrayList<pasien>();
 
-    public void mendaftar(pasien Pasien){
-        pasien pasien = null;
-        getDaftarPasien().add(pasien);
+    public void mendaftar(pasien Pasien) {
+        daftarPasien.add(Pasien);
     }
-    
+
     public Date getTanggalAntrian() {//method getTanggalAntrian yang mengembalikan variabel tanggalAntrian
         return tanggalAntrian;
     }
@@ -73,4 +72,15 @@ public class antrianKlinik {
         this.daftarPasien = daftarPasien;
     }
 
+    public void printInfo() {
+        System.out.println("");
+        System.out.println("------------------------------------");
+        System.out.println("Daftar Antrian Pasien");
+        System.out.println("------------------------------------");
+        for (int i = 0; i < daftarPasien.size(); i++) {
+            daftarPasien.get(i).printInfo();
+
+        }
+
+    }
 }

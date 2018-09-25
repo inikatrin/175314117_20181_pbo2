@@ -15,35 +15,38 @@ import java.util.Date;
  */
 public class pasien {
 
-    
-
     private String noRekamMedis, nama, alamat, tempatLahir, nik;//variabel noRekamMedis, nama, alamat, tempatLahir bertipe data String dan bersifat private
     private int bulanLahir, tahunLahir, tanggalLahir, tanggalAntrian;//variabeltanggalLahir, bulanLahir, tahunLahir bertipe data integer dan bersifat private
     public static ArrayList<pasien> daftarPasienKlinik = new ArrayList<pasien>();
 //    private Date tanggalLahir;
 //    private Date tanggalAntrian;
 
-
     public pasien() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
     }
 
     public pasien(String puspa, String klaten, String medan, int i, int i0, int i1, String string) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
     }
 
     public String getNik() {
         return nik;
     }
 
-    public void setNik(String nik) {
-        this.nik = nik;
+    public void setNik(String nik) throws Exception {
+        if (nik.length() <= 4) {//dalam langkah ini jika noRekamMedis lebih kecil sama dengan 4 dan benar, maka dia akan berhenti dan mencetaknya
+            String NIK = nik;
+            this.nik = nik;
+            this.setNoRekamMedis(NIK);
+        } else {
+            throw new Exception("nomor data anda salah.");//dan jika data noRekamMedis salah maka fungsi dari throw new NumberFormatException tsb akan bekerja dan mencetak bahwa noRekamMedis tsb salah
+        }
     }
 
     public void tambahPasienBaru(pasien test) {
         daftarPasienKlinik.add(bulanLahir, test);
     }
-    
+
     public static void tambahPasien(pasien test) {
         pasien.daftarPasienKlinik = daftarPasienKlinik;
     }
@@ -61,11 +64,11 @@ public class pasien {
         return noRekamMedis;
     }
 
-    public void setNoRekamMedis(String noRekamMedis) throws NumberFormatException {//method void dengan menambahkan throws NumberFormatException
+    public void setNoRekamMedis(String noRekamMedis) throws Exception {//method void dengan menambahkan throws NumberFormatException
         if (noRekamMedis.length() <= 4) {//dalam langkah ini jika noRekamMedis lebih kecil sama dengan 4 dan benar, maka dia akan berhenti dan mencetaknya
             this.noRekamMedis = noRekamMedis;
         } else {
-            throw new NumberFormatException("nomor data anda salah.");//dan jika data noRekamMedis salah maka fungsi dari throw new NumberFormatException tsb akan bekerja dan mencetak bahwa noRekamMedis tsb salah
+            throw new Exception("nomor data anda salah.");//dan jika data noRekamMedis salah maka fungsi dari throw new NumberFormatException tsb akan bekerja dan mencetak bahwa noRekamMedis tsb salah
         }
     }
 
@@ -96,17 +99,20 @@ public class pasien {
     public int getTanggalLahir() {//method getTanggalLahir bertipe data integer yang akan mengembalikan variabel tanggalLahir
         return tanggalLahir;
     }
-    
-    public void getTanggalKelahiran(){
-        Date tanggalKelahiran=new Date(getTahunLahir()-1990, getBulanLahir()-1, getTanggalLahir());
-        SimpleDateFormat ft= new SimpleDateFormat("dd-MM-yyyy");
+
+    /**
+     *
+     */
+    public void getTanggalKelahiran() {
+        Date tanggalKelahiran = new Date(getTahunLahir() - 1990, getBulanLahir() - 1, getTanggalLahir());
+        SimpleDateFormat ft = new SimpleDateFormat("dd-MM-yyyy");
         System.out.println(ft.format(tanggalKelahiran));
     }
 
-    public void setTanggalLahir(int tanggalLahir) throws Exception{
-        if(tanggalLahir>0&&tanggalLahir<32){
-            this.tanggalLahir=tanggalLahir;
-        }else{
+    public void setTanggalLahir(int tanggalLahir) throws Exception {
+        if (tanggalLahir > 0 && tanggalLahir < 32) {
+            this.tanggalLahir = tanggalLahir;
+        } else {
             throw new Exception("Tanggal yang dimasukan salah");
         }
     }
@@ -114,7 +120,6 @@ public class pasien {
 //    public void setTanggalLahir(int tahun, int bulan, int tanggal) {
 //        tanggalLahir = new Date(tahun - 1900, bulan - 1, tanggal);
 //    }
-
     public int getBulanLahir() {//method getBulanLahir bertipe data integer  yang akan mengembalikan variabel bulanLahir
         return bulanLahir;
     }
@@ -139,5 +144,13 @@ public class pasien {
             throw new NumberFormatException("salah tahunnya nih..");//dan jika data TahunLahir salah maka fungsi dari throw new NumberFormatException tsb akan bekerja dan mencetak bahwa tahunLahir tsb salah
         }
 
+    }
+
+    public void printInfo() {
+        System.out.println("Nomor Rekam Medis Pasien : " + getNoRekamMedis());
+        System.out.println("Nama : " + getNama());
+        System.out.print("Tempat, Tanggal Lahir : " + getTempatLahir() + ",");
+        getTanggalKelahiran();
+        System.out.println("Alamat : " + getAlamat());
     }
 }

@@ -18,8 +18,8 @@ public class testDaftarAntrian {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        DaftarAntrianDialog test = new DaftarAntrianDialog("Antrian Baru");
-        test.setSize(600, 500);
+        DaftarAntrianDialog test = new DaftarAntrianDialog();
+        test.setSize(400, 500);
         test.setVisible(true);
     }
     

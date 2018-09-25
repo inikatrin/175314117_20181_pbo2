@@ -12,7 +12,7 @@ import view.MainFrame;
  *
  * @author Personal
  */
-public class testTambahPasien {
+public class testTambahPasienAntrian {
 
     /**
      * @param args the command line arguments

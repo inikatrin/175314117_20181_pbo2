@@ -5,7 +5,7 @@
  */
 package view;
 
-import com.sun.istack.internal.logging.Logger;
+
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -68,7 +68,7 @@ public class DaftarPasienBaru extends JFrame implements ActionListener {
 
     public void init() {
         this.setLayout(null);
-        judulLabel = new JLabel("Formulir Pendaftaran Pasien Baru");
+        judulLabel = new JLabel("Form Daftar Pasien");
         judulLabel.setFont(new Font(null, Font.CENTER_BASELINE, 20));
         judulLabel.setBounds(50, 20, 250, 80);
         this.add(judulLabel);
@@ -110,11 +110,11 @@ public class DaftarPasienBaru extends JFrame implements ActionListener {
         this.add(tanggalLabel);
 
         alamatLabel = new JLabel("Alamat: ");
-        alamatLabel.setBounds(20, 190, 100, 30);
+        alamatLabel.setBounds(20, 150, 100, 30);
         this.add(alamatLabel);
 
         alamatText = new JTextField();
-        alamatText.setBounds(120, 190, 100, 30);
+        alamatText.setBounds(120, 130, 100, 30);
         this.add(alamatText);
 
         NikLabel = new JLabel("NIK");
@@ -134,15 +134,14 @@ public class DaftarPasienBaru extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent a) {
         if (a.getSource() == saveButton) {
-            pasien baru = new pasien();
-            baru.setNama(namaText.getText());
-            baru.setAlamat(alamatText.getText());
-            baru.setNik(NikText.getText());
-            pasien.tambahPasien(baru);
+            pasien psn = new pasien();
+            psn.setNama(namaText.getText());
+            psn.setAlamat(alamatText.getText());
+            psn.setNik(NikText.getText());
+            pasien.tambahPasien(psn);
             JOptionPane.showMessageDialog(null, "Data Telah Ditambahkan");
 
             this.dispose();
-
         }
 
     }

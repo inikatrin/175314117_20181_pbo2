@@ -10,6 +10,7 @@ package model;
  * @author Personal
  */
 public class klinik {
+
     private String idKlinik;//variabel idKlinik bertipe data String dan bersifat private
     private String nama;//variabel nama bertipe data String dan bersifat private
 
@@ -27,6 +28,12 @@ public class klinik {
 
     public void setNama(String nama) {//method void setNama dengan parameter nama bertipe data String
         this.nama = nama;
+    }
+
+    public void printInfo() {
+        System.out.println("");
+        System.out.println("Klinik" + " " + getNama().toUpperCase());
+        System.out.println("Nomor ID Klinik : " + getIdKlinik());     
     }
 
 }

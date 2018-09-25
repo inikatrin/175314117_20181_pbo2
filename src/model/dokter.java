@@ -14,6 +14,18 @@ import java.util.Date;
  */
 public class dokter {
 
+    public void printInfo() {
+        System.out.println("");
+        System.out.println("------------------------------------");
+        System.out.println("Biodata Dokter");
+        System.out.println("------------------------------------");
+        System.out.println("Nomor Pegawai : " + getNomorPegawai());
+        System.out.println("Nama : "+ getNama());
+        System.out.println("Alamat : "+getAlamat());
+        System.out.print("Tempat, Tanggal Lahir : "+getTempatLahir()+",");
+        getTanggalKelahiran();
+    }
+
     private String nomorPegawai, nama, alamat, tempatLahir;//variabel nomorPegawai, nama, alamat, tempatLahir bertipe data String dan bersifat private
     private int tanggalLahir, tahunLahir, bulanLahir;//variabel tanggalLahir bertipe data integer dan bersifat private
 
@@ -38,7 +50,8 @@ public class dokter {
     }
 
     public String getNomorPegawai() {//method getNomorPegawai bertipe data String yang akan mengembalikan variabel nomorPegawai
-        return nomorPegawai;
+        String nomorPeg = (nomorPegawai + nama.substring(0, 2));
+        return nomorPeg;
     }
 
     public void setNomorPegawai(String nomorPegawai) throws NumberFormatException {//method void setNomorPegawai dengan parameter nomorPegawai bertipe data String dengan menambahkan throws NumberFormatException
@@ -68,10 +81,10 @@ public class dokter {
     public String getTempatLahir() {//method getTempatLahir bertipe data String yang akan mengembalikan variabel tempatLahir
         return tempatLahir;
     }
-    
-    public void getTanggalKelahiran(){
-        Date tanggalKelahiran=new Date(getTahunLahir()-1990, getBulanLahir()-1, getTanggalLahir());
-        SimpleDateFormat ft= new SimpleDateFormat("dd-MM-yyyy");
+
+    public void getTanggalKelahiran() {
+        Date tanggalKelahiran = new Date(getTahunLahir() - 1990, getBulanLahir() - 1, getTanggalLahir());
+        SimpleDateFormat ft = new SimpleDateFormat("dd-MM-yyyy");
         System.out.println(ft.format(tanggalKelahiran));
     }
 
