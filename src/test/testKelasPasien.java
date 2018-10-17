@@ -5,7 +5,9 @@
  */
 package test;
 
+import static model.antrianKlinik.cariPasien;
 import model.pasien;
+import static model.pasien.cariPasien;
 
 /**
  *

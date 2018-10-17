@@ -5,9 +5,15 @@
  */
 package model;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -47,8 +53,8 @@ public class pasien {
         daftarPasienKlinik.add(bulanLahir, test);
     }
 
-    public static void tambahPasien(pasien test) {
-        pasien.daftarPasienKlinik = daftarPasienKlinik;
+    public static void tambahPasien(pasien Pasien) {
+        daftarPasienKlinik.add(Pasien);
     }
 
     public static pasien cariPasien(String noRM) {
@@ -145,6 +151,32 @@ public class pasien {
         }
 
     }
+    
+    public static void simpanDaftarPasien(File file) throws IOException {
+        FileOutputStream fos = null;
+        try{
+            fos=new FileOutputStream(file,false);
+            for(int i=0;i<daftarPasienKlinik.size();i++){
+                String data=daftarPasienKlinik.get(i).toString();
+                fos.write(data.getBytes());
+            }
+        }catch(FileNotFoundException ex){
+            Logger.getLogger(pasien.class.getName()).log(Level.SEVERE, null, ex);
+        }catch(IOException ex){
+            Logger.getLogger(pasien.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+            
+        }
+    }
+
+    public static void bacaDaftarPasien(File file) {
+        
+    }
+
+    public static Object getDaftarPasien() {
+        return null;
+        
+    }
 
     public void printInfo() {
         System.out.println("Nomor Rekam Medis Pasien : " + getNoRekamMedis());
@@ -152,5 +184,13 @@ public class pasien {
         System.out.print("Tempat, Tanggal Lahir : " + getTempatLahir() + ",");
         getTanggalKelahiran();
         System.out.println("Alamat : " + getAlamat());
+    }
+
+    /**
+     *
+     */
+    @Override
+    public String toString(){
+        return String.format("Nama Pasien : " +nama+ "\n" +"Alamat Pasien : "+alamat + "\n");
     }
 }
