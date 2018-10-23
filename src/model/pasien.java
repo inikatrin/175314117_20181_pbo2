@@ -5,7 +5,9 @@
  */
 package model;
 
+import Streamtest.testStreaming1;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -151,31 +153,82 @@ public class pasien {
         }
 
     }
-    
+
     public static void simpanDaftarPasien(File file) throws IOException {
         FileOutputStream fos = null;
-        try{
-            fos=new FileOutputStream(file,false);
-            for(int i=0;i<daftarPasienKlinik.size();i++){
-                String data=daftarPasienKlinik.get(i).toString();
+        try {
+            fos = new FileOutputStream(file, false);
+            for (int i = 0; i < daftarPasienKlinik.size(); i++) {
+                String data = daftarPasienKlinik.get(i).toString();
                 fos.write(data.getBytes());
             }
-        }catch(FileNotFoundException ex){
+        } catch (FileNotFoundException ex) {
             Logger.getLogger(pasien.class.getName()).log(Level.SEVERE, null, ex);
-        }catch(IOException ex){
+        } catch (IOException ex) {
             Logger.getLogger(pasien.class.getName()).log(Level.SEVERE, null, ex);
-        }finally{
-            
+        } finally {
+            try {
+                fos.close();
+            } catch (IOException ex) {
+                Logger.getLogger(pasien.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }
 
-    public static void bacaDaftarPasien(File file) {
-        
+    public static void bacaDaftarPasien(File file) throws FileNotFoundException, IOException, Exception {
+        FileInputStream fis = null;
+        try {
+            String baca = "";
+            fis = new FileInputStream(file);
+            int dataInt;
+            boolean noRekamMedis = false;
+            boolean nama = false;
+            boolean alamat = false;
+            pasien temp = new pasien();
+
+            while ((dataInt = fis.read()) != -1) {
+                if ((char) dataInt != '\n') {
+                    if ((char) dataInt != '\t' && noRekamMedis == false) {
+                        baca = baca + (char) dataInt;
+                    } else if ((char) dataInt == '\t' && noRekamMedis == false) {
+                        temp.setNoRekamMedis(baca);
+                        baca = "";
+                        noRekamMedis = true;
+                    } else if ((char) dataInt != '\t' && noRekamMedis == true && nama == false) {
+                        baca = baca + (char) dataInt;
+                    } else if ((char) dataInt == '\t' && noRekamMedis == true && nama == false) {
+                        temp.setNama(baca);
+                        baca = "";
+                        nama = true;
+                    } else if ((char) dataInt != '\t' && noRekamMedis == true && nama == true) {
+                        baca = baca + (char) dataInt;
+                    }
+                } else {
+                    temp.setAlamat(baca);
+                    baca = "";
+                    alamat = true;
+                    pasien.tambahPasien(temp);
+                    noRekamMedis = false;
+                    nama = false;
+                    alamat = false;
+                    temp = new pasien();
+                }
+            }
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(testStreaming1.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(testStreaming1.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                fis.close();
+            } catch (IOException ex) {
+                Logger.getLogger(pasien.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }
 
-    public static Object getDaftarPasien() {
-        return null;
-        
+    public static ArrayList<pasien> getDaftarPasienKlinik() {
+        return daftarPasienKlinik;
     }
 
     public void printInfo() {
@@ -190,7 +243,7 @@ public class pasien {
      *
      */
     @Override
-    public String toString(){
-        return String.format("Nama Pasien : " +nama+ "\n" +"Alamat Pasien : "+alamat + "\n");
+    public String toString() {
+        return String.format("Nama Pasien : " + nama + "\n" + "Alamat Pasien : " + alamat + "\n");
     }
 }

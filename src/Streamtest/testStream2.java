@@ -17,12 +17,12 @@ public class testStream2 {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         // TODO code application logic here
         pasien.bacaDaftarPasien(new File("daftar.txt"));
-        for (int i = 0; i < pasien.getDaftarPasien().size; i++) {
-            System.out.println(pasien.getDaftarPasien().get(i).toString());          
+        for (int i = 0; i < pasien.getDaftarPasienKlinik().size(); i++) {
+            System.out.println(pasien.getDaftarPasienKlinik().get(i).toString());
         }
     }
-    
+
 }

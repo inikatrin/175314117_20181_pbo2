@@ -6,6 +6,7 @@
 package Streamtest;
 
 import java.io.File;
+import java.io.IOException;
 import model.pasien;
 
 /**
@@ -17,7 +18,7 @@ public class testStream {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         // TODO code application logic here
         pasien test = new pasien();
         test.setNama("puspa");
