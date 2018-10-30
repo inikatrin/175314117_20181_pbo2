@@ -31,8 +31,8 @@ public class testStream {
         System.out.println(test.toString());
         System.out.println(test1.toString());
         
-        pasien.tambahPasien(test);
-        pasien.tambahPasien(test1);
+        pasien.tambahPasienBaru(test);
+        pasien.tambahPasienBaru(test1);
         
         pasien.simpanDaftarPasien(new File("daftar.txt"));
     }

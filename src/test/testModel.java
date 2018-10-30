@@ -28,7 +28,7 @@ public class testModel {
 
         //klinik
         Klinik.setIdKlinik("9875FG65E");
-        Klinik.setNama("Lentera Kasih");
+        Klinik.setNamaKlinik("Lentera Kasih");
         
         //pasien
         try {

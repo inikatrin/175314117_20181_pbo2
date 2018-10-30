@@ -1,4 +1,4 @@
-Nama Pasien : puspa
-Alamat Pasien : klaten
-Nama Pasien : adi
-Alamat Pasien : klaten
+puspa
+klaten
+adi
+klaten

@@ -165,7 +165,7 @@ public class DaftarPasienBaru extends JFrame implements ActionListener {
 //                    pasien.setTahunLahir(tahun);
 //                    String namaKlinik = String.valueOf(klinikButton.getSelectedItem().toString());
 //                    klinik.setNama(namaKlinik);
-            pasien.tambahPasien(psn);
+            pasien.tambahPasienBaru(psn);
             JOptionPane.showMessageDialog(null, "Data Telah Ditambahkan");
 
             this.dispose();

@@ -28,12 +28,18 @@ public class testStreaming {
             File file = new File("text.txt");
             String data = "hello world";
             fos = new FileOutputStream(file);
-            fos.write(data.getBytes());       
-    }catch(FileNotFoundException ex){
-        Logger.getLogger(testStreaming.class.getName()).log(Level.SEVERE,null, ex);
-    }catch(IOException ex){
-        Logger.getLogger(testStreaming.class.getName()).log(Level.SEVERE,null, ex);
-    }finally{
-        
+            fos.write(data.getBytes());
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(testStreaming.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(testStreaming.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            try {
+                fos.close();
+            } catch (IOException ex) {
+                Logger.getLogger(testStreaming.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }
     }
-}}
+}

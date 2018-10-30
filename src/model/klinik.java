@@ -5,6 +5,8 @@
  */
 package model;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Personal
@@ -12,11 +14,16 @@ package model;
 public class klinik {
 
     private String idKlinik;//variabel idKlinik bertipe data String dan bersifat private
-    private String nama;//variabel nama bertipe data String dan bersifat private
+    private String namaKlinik;//variabel nama bertipe data String dan bersifat private
+    public static ArrayList<klinik> daftarKlinik = new ArrayList<klinik>();
 
-    public klinik(String idKlinik, String nama) {
+    public static ArrayList<klinik> getDaftarKlinik() {
+        return daftarKlinik;
+    }
+    
+    public klinik(String idKlinik, String namaKlinik) {
         this.idKlinik = idKlinik;
-        this.nama = nama;
+        this.namaKlinik = namaKlinik;
     }
     
     public klinik() {
@@ -31,17 +38,17 @@ public class klinik {
         this.idKlinik = idKlinik;
     }
 
-    public String getNama() {//method getNama bertipe data String yang mengembalikan variabel nama
-        return nama;
+    public String getNamaKlinik() {//method getNama bertipe data String yang mengembalikan variabel nama
+        return namaKlinik;
     }
 
-    public void setNama(String nama) {//method void setNama dengan parameter nama bertipe data String
-        this.nama = nama;
+    public void setNamaKlinik(String namaKlinik) {//method void setNama dengan parameter nama bertipe data String
+        this.namaKlinik = namaKlinik;
     }
 
     public void printInfo() {
         System.out.println("");
-        System.out.println("Klinik" + " " + getNama().toUpperCase());
+        System.out.println("Klinik" + " " + getNamaKlinik().toUpperCase());
         System.out.println("Nomor ID Klinik : " + getIdKlinik());     
     }
 

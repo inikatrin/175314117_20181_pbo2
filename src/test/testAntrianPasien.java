@@ -29,7 +29,7 @@ public class testAntrianPasien {
            //AntrianPasien.buatAntrian(21, 9, 2018, new Klinik("001", "Anak"));
            
            for (int i = 0; i < antrianKlinik.antrianPasien.size(); i++) {
-               System.out.println(antrianKlinik.antrianPasien.get(i).getKlinik().getNama());
+               System.out.println(antrianKlinik.antrianPasien.get(i).getKlinik().getNamaKlinik());
            }
            System.out.println("\n");
            
